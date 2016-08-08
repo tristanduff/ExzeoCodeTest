@@ -4,8 +4,8 @@
   	<title>iTunes Top 100</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
- 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">			<!--Access to Bootstrap CSS Functionality-->
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>					<!--Access to jquery library-->
+ 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">					<!--Access to Bootstrap CSS Functionality-->
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>							<!--Access to jquery library-->
 
 <!--The script below is a simple "hide" button test of jquery-->
 <script>
@@ -18,12 +18,12 @@
 
 <!--This might let the button get the iTunes stuff-->
 <script>
-$.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_param: "value" }, function(data) {
-    $.each(data, function(index, element) {
-        $('body').append($('<div>', {
-            text: element.name
+$.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_param: "value" }, function(data) {			//Grabs data from iTunes
+    console.log($.each(data, function(index, element) {																				//For each item in the json feed...
+        $('body').append($('<div>', {																					//...add a <div> entry in the body...
+            text: element.name																							//...and make the text something something something
         }));
-    });
+    }));
 });
 </script>
 
@@ -31,5 +31,6 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
 <body>
 	<p>Make me go away</p>
 <button>Test Me</button>
+<div></div>
 </body>
 </html>
