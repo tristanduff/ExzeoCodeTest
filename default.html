@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>iTunes Top 100</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<script>
+//This SHOULD establish a connection to the iTunes JSON feed and pull the information
+
+
+URL url = new URL("https://itunes.apple.com/us/rss/topalbums/limit=100/json"); 							//sets the iTunes feed URL
+	URLConnection connection = url.openConnection(); 													//opens connection to URL
+	String line;
+	StringBuilder builder = new StringBuilder();														//Builds a string for the information
+	BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));		//Makes the information cleaner, I think
+        while((line = reader.readLine()) != null) {	
+			builder.append(line);																		//adds a line to the string
+        }
+
+        JSONObject itunesJsonObject = new JSONObject(builder.toString());								//makes a new JSON Object caled "itunesJsonObject"
+
+        JSONObject feedJsonOject = itunesJsonObject.getJSONObject("feed");        						//adds the "feed" object
+        JSONArray arrayJsonObject = feedJsonOject.getJSONArray("entry");								//adds an entry to the feed
+
+        List<String> list = new ArrayList<>();
+
+        for(int i = 0 ; i < arrayJsonObject.length() ; i++){                        
+
+            list.add(arrayJsonObject.getJSONObject(i).getJSONObject("title").getString("label");           
+        }
+
+        for(String e: list){
+            log.debug("JSON Object : " + e.toString());
+        }   
+        
+//This SHOULD display the iTunes information once it's pulled from the server
+	var artistNames = document.querySelectorAll("div.section-content ul li h4 a");
+	var trackNames = document.querySelectorAll("div.section-content ul li h3 a");
+
+	var songsList = [];
+		for(i=0; i < trackNames.length; i++){
+    	songsList.push(artistNames[i].innerText + " - " + trackNames[i].innerText);
+}
+copy(songsList);
+</script>
+
+</body>
+</html>
