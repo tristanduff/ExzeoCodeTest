@@ -7,7 +7,7 @@
  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">					<!--Access to Bootstrap CSS Functionality-->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>							<!--Access to jquery library-->
 
-<!--The script below is a simple "hide" button test of jquery-->
+<!--The script below is a simple "hide" button test of jquery
 <script>
 	$(document).ready(function(){
    	$("button").click(function(){
@@ -15,22 +15,28 @@
    	});
 	});
 </script>
+-->
 
 <!--This might let the button get the iTunes stuff-->
+<!--Currently set to output data to console-->
 <script>
-$.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_param: "value" }, function(data) {			//Grabs data from iTunes
-    console.log($.each(data, function(index, element) {																				//For each item in the json feed...
-        $('body').append($('<div>', {																					//...add a <div> entry in the body...
-            text: element.name																							//...and make the text something something something
-        }));
-    }));
+$.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_param: "value" }, function(data) {	
+	console.log(data.feed.entry);				
+			//Grabs data from iTunes
+    ($.each(data.feed.entry, function(index, element) {
+    	var divContainer = $('<div>');
+    	var artist = $('<span>');
+       container.append($("<span>", {
+       	text: element["im:artist"].label
+       }));    	
+       $('body').append(divContainer);   																		//...and make the text something something something
+       }));
+  // }));
 });
 </script>
 
 </head>
 <body>
-	<p>Make me go away</p>
-<button>Test Me</button>
-<div></div>
+	
 </body>
 </html>
