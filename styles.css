@@ -3,6 +3,10 @@
     height:100px;
 }
 
+.AlbumArt {
+									/*Formatting for Album cover art image*/
+}
+
 .Artist {							/*Formatting for the Artist entry*/
 	font-style: italic;  
 }
