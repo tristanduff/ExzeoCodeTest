@@ -1,5 +1,5 @@
 # ExzeoCodeTest
-Initial push
+Initial push - Last Edited 9 Aug 2016
 
 This project is being submitted as the Code Test for a prospective job with Exzeo. All files and supporting documentation are the creation of Tristan Duff, unless otherwise noted. The goal of the project is to fetch the current iTunes Top 100 albums from the following feed: https://itunes.apple.com/us/rss/topalbums/limit=100/json
 
