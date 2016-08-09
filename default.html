@@ -4,39 +4,15 @@
   	<title>iTunes Top 100</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
- 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">					<!--Access to Bootstrap CSS Functionality-->
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>							<!--Access to jquery library-->
-
-<!--The script below is a simple "hide" button test of jquery
-<script>
-	$(document).ready(function(){
-   	$("button").click(function(){
-	$("p").hide();
-   	});
-	});
-</script>
--->
-
-<!--This might let the button get the iTunes stuff-->
-<!--Currently set to output data to console-->
-<script>
-$.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_param: "value" }, function(data) {	
-	console.log(data.feed.entry);				
-			//Grabs data from iTunes
-    ($.each(data.feed.entry, function(index, element) {
-    	var divContainer = $('<div>');
-    	var artist = $('<span>');
-       container.append($("<span>", {
-       	text: element["im:artist"].label
-       }));    	
-       $('body').append(divContainer);   																		//...and make the text something something something
-       }));
-  // }));
-});
-</script>
-
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">					<!--Access to Bootstrap CSS Functionality-->
+    <link rel="stylesheet" href="styles.css">																				<!--Lecal CSS Stylesheet-->
+  	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>														<!--Access to JQuery Library-->
+	<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>												<!--Access to JQuery UI Library-->
 </head>
-<body>
-	
+<body class="row">
+<!--Things happen here-->
+
+	<script src="script.js"></script> 																						<!--Loads the external javascript source after processing above HTML-->
+	<script src="jquery.ui.touch-punch.min.js"></script>																	<!--Loads the Touch Punch hack JavaScript to allow touchscreen function-->
 </body>
 </html>
