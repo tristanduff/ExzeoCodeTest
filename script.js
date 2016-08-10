@@ -1,15 +1,20 @@
 $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_param: "value" }, function(data) { //bracket lvl 1, jsonget		//Grabs data from iTunes
-	console.log(data.feed.entry);																											//Puts each array entry into the console
+	
+	console.log(data.feed.entry); //Runs through the JSON feed in console
+	
+	var topDiv = $('<div class="flexContainerTop"></div>');
+	//use topDiv.appendTo
+	
     	($.each(data.feed.entry, function(index, element) {	//bracket lvl 2, datafeed														//Array for populating the iTunes data
     		
-    		var divContainer = $('<div align="center">');																					//Generates the <div> tags in the array
+    		var divContainer = $('<div align="center">').appendTo(topDiv); //should put the divContainer in the top div
     		var linebreak1 = $('<br></br>');
     		var linebreak2 = $('<br></br>');
-    		var linebreak3 = $('<br></br>');    		
-			var albumart = $('<span>', { //bracket lvl 3, albumart																			//Generates the "AlbumArt" element
-//The code below needs the third attributes.label in the array, which links to the 170x170 .jpg album art; figure out how to cycle through to the third entry
-			//text: element["im:image"].label 																					//fetches album art .jpg link
-			}); //bracket lvl 3, albumart
+    		var linebreak3 = $('<br></br>');    	
+    			
+			//var albumart = $('<span>', { //bracket lvl 3, albumart																			//Generates the "AlbumArt" element
+			//text: element["im:image"][2].label 																								//fetches album art .jpg link
+			//}); //bracket lvl 3, albumart
 
     		var name = $('<span>', { //bracket lvl 3, name																					//Generates the "Name" element
     	    text: element["im:name"].label																									//fetches name label
@@ -23,15 +28,20 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
     		text:element["im:releaseDate"].attributes.label
     		});
     	
-    	divContainer.addClass("Container col-md-3")																							//Container label for CSS interaction; col-md-3 is Bootstrap formatting
+    	divContainer.addClass("flexItemTop")
         linebreak1.addClass("LineBreak")
         linebreak2.addClass("LineBreak")
         linebreak3.addClass("LineBreak")
-        albumart.addClass("AlbumArt")																										//AlbumArt label for CSS interaction
-        artist.addClass("Artist")																											//Artist label for CSS interaction
+        //albumart.addClass("AlbumArt")																										
+        artist.addClass("Artist")																											
         name.addClass("Name")
-        releasedate.addClass("ReleaseDate")																									//Name label for CSS interaction
-       	divContainer.append(albumart, linebreak1, name, linebreak2, artist, linebreak3, releasedate);  																						//Places inside the container <div>
-       	$('body').append(divContainer);                                    																	//Places the container in the <body> of the page
+        releasedate.addClass("ReleaseDate")		
+        																							
+       	divContainer.append(name, linebreak2, artist, linebreak3, releasedate);  																	
+       	divContainer.appendTo(topDiv);                                    																
        	})); //bracket lvl 2, datafeed
+       	
+       	
+       	$('body').append(topDiv); //This'll be what puts the data into the page, hopefully
+       	
 }); //bracket lvl 1, jsonget
