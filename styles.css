@@ -17,14 +17,17 @@
 	font-size:small;  
 }
 
-
+.Rank {
+	color:Red;
+	font-size:small;
+}
 
 .ReleaseDate {						/*Formatting for the Release Date entry*/
 	color:DarkGrey;
 	font-size:smaller;					
 }
 
-.flexContainerTop {                	/*Top flex container*/
+.flexContainerAlbumList {           /*Flex Container for bottom album titles*/
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
@@ -37,11 +40,25 @@
     /*background-color:LightGrey;*/
 }
 
-.flexItemTop {  					/*Formatting for items in top flex container*/
+.flexItemRank {
     background-color:LightGrey;		/*Background color and border properties will likely be removed in final product*/
     border-style:solid;
     border-color:black;
     border-width:1px;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 5%;
+    height: auto;
+    margin: 5px;	
+}
+
+.flexItemAlbumEntry {  				/*Flex elements within album titles flex container*/
+    /*
+    background-color:LightGrey;		
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+    */
     -webkit-justify-content: center;
     justify-content: center;
     width: 40%;
