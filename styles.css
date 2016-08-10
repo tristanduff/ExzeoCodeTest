@@ -7,10 +7,44 @@
 									/*Formatting for Album cover art image*/
 }
 
-.Artist {							/*Formatting for the Artist entry*/
-	font-style: italic;  
+.Name {								/*Formatting for the Album Name entry*/
+    font-weight:bold;
+    font-size:medium;
 }
 
-.Name {								/*Formatting for the Name entry*/
-    font-weight:bold;
+.Artist {							/*Formatting for the Artist entry*/
+	font-style:italic;
+	font-size:small;  
+}
+
+
+
+.ReleaseDate {						/*Formatting for the Release Date entry*/
+	color:DarkGrey;
+	font-size:smaller;					
+}
+
+.flexContainerTop {                	/*Top flex container*/
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    /*background-color:LightGrey;*/
+}
+
+.flexItemTop {  					/*Formatting for items in top flex container*/
+    background-color:LightGrey;		/*Background color and border properties will likely be removed in final product*/
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 40%;
+    height: auto;
+    margin: 5px;
 }
