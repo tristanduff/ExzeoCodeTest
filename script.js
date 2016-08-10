@@ -7,19 +7,11 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
     var ranking = 1;
     	
     	($.each(data.feed.entry, function(index, element) {	//bracket lvl 2, datafeed														//Array for populating the iTunes data
-    		//var divRank = $('<span>').prependTo(topDiv);
     		var divContainer = $('<div align="center">').appendTo(topDiv); 																	//puts the divContainer at end of topDiv
     		var linebreak1 = $('<br></br>');
     		var linebreak2 = $('<br></br>');
     		var linebreak3 = $('<br></br>'); 
     		var linebreak4 = $('<br></br>');   	
-    		
-    		//var imgtag = $('<img src=');	
-    			
-			var albumart = $('<span>', { //bracket lvl 3, albumart																			
-			text: element["im:image"][2].label 																								//fetches album art .jpg link
-			}); //bracket lvl 3, albumart
-	
 			var img = $("<img />").attr('src', element["im:image"][0].label);
 	
     		var name = $('<span>', { //bracket lvl 3, name																					
@@ -34,24 +26,19 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
     		text:element["im:releaseDate"].attributes.label
     		}); //bracket lvl 3, releasedate
     	
-    	//divRank.addClass("flexItemRank")
     	divContainer.addClass("flexItemAlbumEntry")
         linebreak1.addClass("LineBreak")
         linebreak2.addClass("LineBreak")
         linebreak3.addClass("LineBreak")
-        linebreak4.addClass("LineBreak")
-        albumart.addClass("AlbumArt")																									
+        linebreak4.addClass("LineBreak")																							
         name.addClass("Name")        
         artist.addClass("Artist")																											
-        releasedate.addClass("ReleaseDate")
-        //divRank.append(ranking);
-        //divRank.prependTo(topDiv);																						
+        releasedate.addClass("ReleaseDate")																				
        	divContainer.append(ranking, linebreak1, img, linebreak2, name, linebreak3, artist, linebreak4, releasedate);  																	
        	divContainer.appendTo(topDiv);    
        	ranking = ranking+1;                                																
        	})); //bracket lvl 2, datafeed
-       	
-       	
-       	$('body').append(topDiv);
+       	  	
+	$('body').append(topDiv);
        	
 }); //bracket lvl 1, jsonget
