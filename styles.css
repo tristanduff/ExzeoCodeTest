@@ -1,10 +1,20 @@
-.Container {  						/*Formatting for the Container, everything under this resides within the container*/
-    border:solid 1px;
-    height:100px;
+/* Let's make carousel stuff!*/
+
+.carousel-inner > .item > img,
+
+.carousel-inner > .item > a > img {
+	width: 170px;
+	height: 170px;
+	margin: 5px;
 }
 
+.carousel-indicators li { 
+	visibility: hidden; 
+}
+
+
 .AlbumArt {
-									/*Formatting for Album cover art image*/
+
 }
 
 .Name {								/*Formatting for the Album Name entry*/
@@ -27,7 +37,32 @@
 	font-size:smaller;					
 }
 
-.flexContainerAlbumList {           /*Flex Container for bottom album titles*/
+.flexContainerHoriz {           /*Flex Container for top carousel*/
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color:DarkGrey;
+}
+
+.flexHorizEntry {  				/*Flex elements within bottom album titles flex container*/
+ 	background-color:LightGrey;		
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 170px;
+    height: 170px;
+    margin: 5px;
+}
+
+.flexContainerVert {           /*Flex Container for bottom*/
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
@@ -37,11 +72,12 @@
     align-items: center;
     width: 100%;
     height: auto;
-    /*background-color:LightGrey;*/
+    background-color:LightGrey;
 }
 
+/*NOT IN USE
 .flexItemRank {
-    background-color:LightGrey;		/*Background color and border properties will likely be removed in final product*/
+    background-color:LightGrey;	
     border-style:solid;
     border-color:black;
     border-width:1px;
@@ -51,8 +87,20 @@
     height: auto;
     margin: 5px;	
 }
+NOT IN USE*/
 
-.flexItemAlbumEntry {  				/*Flex elements within album titles flex container*/
+.flexItemCarousel {  				/*Top flex element for carousel*/
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+    background-color:GhostWhite; 			/*This is TEMPORARY*/	
+}
+
+.flexItemAlbumEntry {  				/*Flex elements within bottom album titles flex container*/
     /*
     background-color:LightGrey;		
     border-style:solid;
