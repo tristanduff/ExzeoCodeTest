@@ -2,8 +2,7 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
 	
 	console.log(data.feed.entry); 																											//Runs through the JSON feed in console
 	
-	//topDiv houses the entire page
-	var topDiv = $('<div class="flexContainerHoriz"></div>');
+	var topDiv = $('<div class="flexContainerHoriz"></div>'); //class="flexContainerHoriz"
 	//var treintaDiv = $('<div class="flexHorizEntry"></div>');
 	var ventiDiv = $('<div id="myCarousel" class="carousel slide" data-ride="carousel">');
 	var grandeDiv = $('<ol class="carousel-indicators">');
@@ -15,8 +14,9 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
     var ranking = 1;
     var entry = 0;	
     
-    
+
  	$('body').append(topDiv);
+ 	$('body').append(btmDiv);
  		ventiDiv.appendTo(topDiv);
  			//ventiDiv.appendTo(treintaDiv);
  				grandeDiv.appendTo(ventiDiv);  			
@@ -83,10 +83,7 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
         	albumCaption.appendTo(carEntry);
     	};
         subCaptionAlbum.appendTo(albumCaption);			
-        subCaptionArtist.appendTo(albumCaption);	
-        				
-        //add in left/right controls				
-        																			
+        subCaptionArtist.appendTo(albumCaption);	        																			
        	divContainer.append(ranking, linebreak1, imgSmall, linebreak2, name, linebreak3, artist, linebreak4, releasedate);  																	
        	divContainer.appendTo(btmDiv);    
        	ranking = ranking+1;     
@@ -95,8 +92,7 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
        	})); //bracket lvl 2, datafeed
     ventiDiv.append(midDiv);
     btnMaker.appendTo(ventiDiv);
-    //append the controls to midDiv here
-
+    $btmDiv.appendTo('body');	
 
        	
 }); //bracket lvl 1, jsonget
