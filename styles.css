@@ -39,7 +39,7 @@
     -webkit-align-items: center;
     align-items: center;
     width: 100%;
-    height: 200px;
+    height: 500px;
     background-color:DarkGrey;
 }
 
@@ -58,14 +58,15 @@
 .flexContainerVert {           /*Flex Container for bottom*/
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: column;
+    -webkit-flex-direction: row;
     -webkit-justify-content: center;
     justify-content: center;
     -webkit-align-items: center;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
     height: auto;
-    background-color:LightGrey;
+    background-color:Beige;
 }
 
 /*NOT IN USE
@@ -94,7 +95,7 @@ NOT IN USE*/
 }
 
 .flexItemAlbumEntry {  				/*Flex elements within bottom album titles flex container*/
-    /*
+   /* 
     background-color:LightGrey;		
     border-style:solid;
     border-color:black;
@@ -102,7 +103,7 @@ NOT IN USE*/
     */
     -webkit-justify-content: center;
     justify-content: center;
-    width: 40%;
-    height: auto;
+    width: 300px;
+    height: 300px;
     margin: 5px;
 }
