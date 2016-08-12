@@ -17,8 +17,8 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
 
  	$('body').append(topDiv);
  	$('body').append(btmDiv);
- 		ventiDiv.appendTo(topDiv);
- 			//ventiDiv.appendTo(treintaDiv);
+ 		//treintaDiv.appendTo(topDiv);
+ 			ventiDiv.appendTo(topDiv);
  				grandeDiv.appendTo(ventiDiv);  			
     	
     	($.each(data.feed.entry, function(index, element) {	//bracket lvl 2, datafeed														//Array for populating the iTunes data
@@ -28,13 +28,13 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
     		var linebreak2 = $('<br></br>');
     		var linebreak3 = $('<br></br>'); 
     		var linebreak4 = $('<br></br>');   	
-			var imgSmall = $("<img />").attr('src', element["im:image"][0].label); //55px Used in bottom text descriptions
+			var imgSmall = $("<img />").attr('src', element["im:image"][2].label); //55px Used in bottom text descriptions
 			var imgLarge = $("<img />").attr('src', element["im:image"][2].label); //170px Used in top carousel
 			
 			var listItem = $("<li data-target='name' data-slide-to='entry'></li>");
     		
-    		var carFirst = $('<div class="item first flexHorizEntry" id="'+entry+'">'); //div tag for first entry
-    		var carEntry = $('<div class="item flexHorizEntry" id="'+entry+'">'); //div tag for all other entries
+    		var carFirst = $('<div class="item first" id="'+entry+'">'); //div tag for first entry
+    		var carEntry = $('<div class="item" id="'+entry+'">'); //div tag for all other entries
     		
     		var albumCaption = $('<div class="carousel-caption" id="HolderCaption">'); //Caption div that goes into the Album entry
     		
@@ -94,5 +94,31 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
     btnMaker.appendTo(ventiDiv);
     $btmDiv.appendTo('body');	
 
+$(document).ready(function(){
+    // Activate Carousel
+    $("#myCarousel").carousel();
+    
+    // Enable Carousel Indicators
+    $(".item1").click(function(){
+        $("#myCarousel").carousel(0);
+    });
+    $(".item2").click(function(){
+        $("#myCarousel").carousel(1);
+    });
+    $(".item3").click(function(){
+        $("#myCarousel").carousel(2);
+    });
+    $(".item4").click(function(){
+        $("#myCarousel").carousel(3);
+    });
+    
+    // Enable Carousel Controls
+    $(".left").click(function(){
+        $("#myCarousel").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#myCarousel").carousel("next");
+    });
+});
        	
 }); //bracket lvl 1, jsonget
