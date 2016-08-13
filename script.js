@@ -35,8 +35,13 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
     		
     		var carFirst = $('<div class="item first" id="'+entry+'">'); //div tag for first entry
     		var carEntry = $('<div class="item" id="'+entry+'">'); //div tag for all other entries
-    		
+    	
     		var albumCaption = $('<div class="carousel-caption" id="HolderCaption">'); //Caption div that goes into the Album entry
+    		
+    		var albumLink = element["link"].attributes.href; //holds link from array to album on iTunes
+    		
+    		//var imgLinker = $("<a />");
+    		//console.log(albumLink);
     		
     		var subCaptionAlbum = $('<h3>', {
     		text: element["im:name"].label	
@@ -69,7 +74,6 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
         name.addClass("Name")        
         artist.addClass("Artist")																											
         releasedate.addClass("ReleaseDate")
-        
  
         listItem.appendTo(grandeDiv);
         
@@ -84,15 +88,14 @@ $.getJSON("https://itunes.apple.com/us/rss/topalbums/limit=100/json", { get_para
     	};
         subCaptionAlbum.appendTo(albumCaption);			
         subCaptionArtist.appendTo(albumCaption);	        																			
-       	divContainer.append(ranking, linebreak1, imgSmall, linebreak2, name, linebreak3, artist, linebreak4, releasedate);  																	
-       	divContainer.appendTo(btmDiv);    
+       	divContainer.append(ranking, linebreak1, imgSmall, linebreak2, name, linebreak3, artist, linebreak4, releasedate);  			
        	ranking = ranking+1;     
        	entry = entry+1;
        	                          																
        	})); //bracket lvl 2, datafeed
     ventiDiv.append(midDiv);
     btnMaker.appendTo(ventiDiv);
-    $btmDiv.appendTo('body');	
+    btmDiv.appendTo('body');	
 
 $(document).ready(function(){
     // Activate Carousel
