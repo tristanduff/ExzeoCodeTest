@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  	<title>iTunes Top 100</title>
+  	<title>Albums</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,19 +11,55 @@
   	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>														<!--Access to JQuery Library-->
 	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>												<!--Access to JQuery UI Library-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-	  <style>
-  .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }
-  </style>						<!--Access to Handlebars libary-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>	
+
 </head>
-<body>
-	<script src="script.js"></script> 																						<!--Loads the external javascript source after processing above HTML-->
-	<script src="jquery.ui.touch-punch.min.js"></script>																	<!--Loads the Touch Punch hack JavaScript to allow touchscreen function-->
-	<!--The code above is dual licensed under the MIT or GPL Version 2 licenses and is therefore free to use, modify and/or distribute.-->
-	<!--Touch Punch source: http://http://touchpunch.furf.com/-->
+<body class="flexHolder">
+<!--Denotes everything within as handlebars-->
+	<div class="flexHeader">
+		<span class="flexHeaderTitle">iTunes Top 100 Albums</span>
+		<br>
+		<span class="flexHeaderSubtext">Powered by </span><img src="exzeo.jpg" class="flexHeaderLogo">
+		<br>
+		<span><a href="songs.html">Check out the top 100 songs on iTunes here!</a></span>
+
+	</div>
+	
+<!--Template for the cards in the bottom part of the page-->
+	<script id="cardTemplate" type="text/x-handlebars-template">
+		<div align="center" class="flexItemAlbumEntry container">
+			<span class="Ranking">#{{ranking}}</span>
+			<!--When finished, the iTunesLink will be replaced and will set focus of the top carousel-->
+			
+				<img src="{{albumArt}}" title="Click" class="img" data-toggle="modal" data-target="#myModal">
+			<!--<a href="{{iTunesLink}}" target="_blank"></a>-->
+			<br
+			<span class="Name box">{{name}}</span>
+			<span class="Artist box">{{artist}}</span>
+		</div>
+		<div class="modal fade" id="myModal" role="dialog">
+    		<div class="modal-dialog">
+    
+      			<!-- Modal content-->
+      			<div class="modal-content">
+        			<div class="modal-header">
+          				<button type="button" class="close" data-dismiss="modal">&times;</button>
+          				<h4 class="modal-title">{{name}} by {{artist}}</h4>
+        			</div>
+        			<div class="modal-body">
+          				<p>Some text in the modal.</p>
+        			</div>
+        			<div class="modal-footer">
+          				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        			</div>
+      			</div>
+	      	</div>
+  		</div>
+	</script>
+	
+	<!--Cards are places here-->
+	<div class="center flexHolder"></div>
+	
+	<script src="script.js"></script> 			
 </body>
 </html>

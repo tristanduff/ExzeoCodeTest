@@ -1,36 +1,7 @@
 /* Let's make carousel stuff!*/
 
-
-.carousel-indicators li { 
-	visibility: hidden; 
-}
-
-
-.AlbumArt {
-
-}
-
-.Name {								/*Formatting for the Album Name entry*/
-    font-weight:bold;
-    font-size:medium;
-}
-
-.Artist {							/*Formatting for the Artist entry*/
-	font-style:italic;
-	font-size:small;  
-}
-
-.Rank {
-	color:Red;
-	font-size:small;
-}
-
-.ReleaseDate {						/*Formatting for the Release Date entry*/
-	color:DarkGrey;
-	font-size:smaller;					
-}
-
-.flexContainerHoriz {           /*Flex Container for top carousel*/
+/*Properties for entire page body, unless set otherwise below*/
+.flexHolder {           
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
@@ -38,9 +9,125 @@
     justify-content: center;
     -webkit-align-items: center;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
-    height: 500px;
-    background-color:DarkGrey;
+    height: auto;
+    background-color:White;
+}
+
+/*Properties for everything in top header*/
+.flexHeader {
+	-webkit-justify-content: center;
+    justify-content: center;
+    align-items: wrap;
+	background-color: White;
+	/*border-bottom: solid;*/
+	border-color: black;
+	border-width: 1px;
+	width: 100%;
+    height: auto;
+	text-align: center;
+
+}
+
+/*Top Header Title*/
+.flexHeaderTitle {
+	font-size: 600%;
+	font-weight: bold;
+font-family: Helvetica;
+text-shadow: 0px 2px 3px #555;
+/*
+text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+*/
+}
+
+/*Powered by Exzeo text*/
+.flexHeaderSubtext {
+	font-size: 16px;
+	font-weight: bold;
+	color: Black;
+	position: relative;
+	vertical-align: super;
+}
+
+/*Exzeo Logo in header*/
+.flexHeaderLogo {
+	height: 40px;
+	vertical-align: text-bottom;
+}
+
+/*Links in header*/
+.flexHeaderLinks {
+	
+}
+
+/*Place flexbox properties for flexBoxContainerEntry and child elements here*/
+.flexItemAlbumEntry {
+	display: flex;
+	flex-direction: column;  
+	position: releative;	
+   	background-color: LightGray;
+   	/*		
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+	*/
+    width: 250px;
+    height: 210px;
+    margin: 8px;
+    box-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+	border-radius:25px;
+}
+
+.Rank {
+	width: 30px;
+	background-color: Blue;
+	margin-bottom: auto;
+	font-size:8px;
+	bottom-border-radius:5px;
+}
+
+.AlbumArt {
+	position: absolute;
+	width: 300px;
+	height:300px;
+	border-width:1px;
+   	border-color:black;
+   	border-radius:10px;
+}
+
+.Name {								/*Formatting for the Album Name entry*/
+    font-weight:bold;
+    font-size:12px;
+}
+
+.Artist {							/*Formatting for the Artist entry*/
+	margin-top: auto;
+	font-style:italic;
+	font-size:12px;  
+}
+
+
+
+.ReleaseDate {						/*Formatting for the Release Date entry*/
+
+	color:Black;
+	font-size:12px;
+}
+
+.flexCarousel {           /*Flex Container for top carousel*/
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    wrap-items: none;
+    width: 280px;
+    height: 300px;
+    background-color:AliceBlue;
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
 }
 
 .flexHorizEntry {  				/*Flex elements within bottom album titles flex container*/
@@ -55,19 +142,6 @@
     margin: 5px;
 }
 
-.flexContainerVert {           /*Flex Container for bottom*/
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-    background-color:Beige;
-}
 
 /*NOT IN USE
 .flexItemRank {
@@ -94,16 +168,93 @@ NOT IN USE*/
     background-color:GhostWhite; 			/*This is TEMPORARY*/	
 }
 
-.flexItemAlbumEntry {  				/*Flex elements within bottom album titles flex container*/
-   /* 
-    background-color:LightGrey;		
-    border-style:solid;
-    border-color:black;
-    border-width:1px;
-    */
-    -webkit-justify-content: center;
-    justify-content: center;
-    width: 300px;
-    height: 300px;
-    margin: 5px;
+.img{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    /*padding: 10px;*/
+   	border-width:1px;
+   	border-color:black;
+   	border-radius:15px;
+   	box-shadow:0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
 }
+
+.img:hover{
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+ -webkit-box-shadow: 0px 0px 30px 0px rgba(30, 30, 30, 1);
+-moz-box-shadow:    0px 0px 30px 0px rgba(30, 30, 30, 1);
+box-shadow:0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(255,255,255,.1), 0 0 5px rgba(255,255,255,.1), 0 1px 3px rgba(255,255,255,.3), 0 3px 5px rgba(100,100,100,.2), 0 5px 10px rgba(255,255,255,.25), 0 10px 10px rgba(255,255,255,.2), 0 20px 20px rgba(255,255,255,.15);
+}
+/*
+.img:last-of-type:hover{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+ -webkit-box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.67);
+-moz-box-shadow:    0px 0px 30px 0px rgba(255, 255, 255, 0.67);
+box-shadow:         0px 0px 30px 0px rgba(255, 255, 255, 0.67);
+}
+*/
+/*
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+}
+
+
+
+.box {
+  padding: 2em;
+  border: 1px solid #ccc;
+  display: block;
+  width: 50%;
+  height: 210px;
+  float: left;
+  margin: -1px 0 0 -1px;
+  color: black;
+  background: linear-gradient(
+     white, white 50%, #333 50%, #333
+  );
+  background-size: 100% 202%;
+  transition: all 0.2s ease;
+  animation: down-bump 0.4s ease;
+}
+.box h2 {
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+}
+.box h3 {
+  font: 0.8em "Lucida Grande", serif;
+}
+
+.box:hover {
+  background-position: 100% 100%;
+  animation: up-bump 0.4s ease;
+}
+.box:hover h2 {
+  color: #48ad26;
+}
+.box:hover h2 span {
+  color: white;
+}
+.box:hover h3 {
+  color: #999;
+}
+
+@keyframes up-bump {
+  0% { padding-top: 2em; }
+  50% { padding-top: 1.5em; }
+  100% { padding-top: 2em; }
+}
+@keyframes down-bump {
+  0% { padding-top: 2em; }
+  50% { padding-top: 2.5em; }
+  100% { padding-top: 2em; }
+}
+*/
