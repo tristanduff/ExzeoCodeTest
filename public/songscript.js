@@ -6,14 +6,14 @@ var srcCards = $('#cardTemplate').html();
 var cardsTemplate = Handlebars.compile(srcCards);
 //var songsTemplate = Handlebars.compile(srcSongs);
 
-$.getJSON("/albums", function(data) {
-    $.each(data, function (index, album) {
+$.getJSON("/songs", function(data) {
+    $.each(data, function (index, songs) {
       //$.getJSON("/songs/:id", function(id) {
         //console.log(id);
         //var songMaker = songsTemplate(id);
         //$('.songHolder').append(songMaker);
       //});
-        var cardMaker = cardsTemplate(album);
+        var cardMaker = cardsTemplate(songs);
         //console.log(cardMaker);
         $('.center').append(cardMaker);
 		});

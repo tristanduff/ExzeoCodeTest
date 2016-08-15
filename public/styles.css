@@ -71,20 +71,17 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px
     -webkit-justify-content: space-between;
     justify-content: space-between;
 	*/
-    width: 220px;
+    width: 200px;
     height: 220px;
     margin: 5px;
-    padding: 30px;
+    padding: 0px;
   /*  box-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
 	border-radius:25px;*/
 }
 
 .Rank {
-	width: 30px;
-	background-color: Blue;
-	margin-bottom: auto;
-	font-size:8px;
-	bottom-border-radius:5px;
+	font-size:12px;
+	padding-bottom: 10px;
 }
 
 .AlbumArt {
@@ -126,7 +123,6 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px
 }
 
 .Artist {							/*Formatting for the Artist entry*/
-	margin-top: auto;
 	font-style:italic;
 	font-size:12px;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  	<title>Albums</title>
+  	<title>Songs</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,11 +18,11 @@
 <body class="flexHolder">
 <!--Denotes everything within as handlebars-->
 	<div class="flexHeader">
-		<span class="flexHeaderTitle">iTunes Top 100 Albums</span>
+		<span class="flexHeaderTitle">iTunes Top 100 Songs</span>
 		<br>
 		<span class="flexHeaderSubtext">Powered by </span><img src="exzeo.jpg" class="flexHeaderLogo">
 		<br>
-		<span><a href="songs.html">Check out the top 100 songs on iTunes here!</a></span>
+		<span><a href="index.html">Check out the top 100 albums on iTunes here!</a></span>
 
 	</div>
 
@@ -39,7 +39,7 @@
 			<span class="Rank">#{{ranking}}</span>
 			<!--When finished, the iTunesLink will be replaced and will set focus of the top carousel-->
 
-				<img src="{{albumArt}}" title="Click for Album Details" class="boop" data-toggle="modal" data-target="#myModal{{ranking}}">
+				<img src="{{albumArt}}" title="Click for Song Details" class="boop" data-toggle="modal" data-target="#myModal{{ranking}}">
 			<!--<a href="{{iTunesLink}}" target="_blank"></a>-->
 			<br>
 			<span class="nameIt">{{name}}</span>
@@ -76,6 +76,6 @@
 	<!--Cards are places here-->
 	<div class="center flexHolder"></div>
 
-	<script src="script.js"></script>
+	<script src="songscript.js"></script>
 </body>
 </html>
