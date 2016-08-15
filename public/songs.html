@@ -55,9 +55,10 @@
           				<h4 class="modal-title">Song Details</h4>
         			</div>
         			<div class="modal-body">
-                  <p>{{songName}}</p>
-                  <p><a href="{{iTunesAlbumLink}}" target="_blank">{{albumName}}</a></p>
+                  <p class="name">{{songName}}</p>
+                  <p class="ArtistPopup"><a href="{{iTunesAlbumLink}}" target="_blank">{{albumName}}</a></p>
                   <p>{{artist}}</p>
+                  <p><a href="{{previewLink}}" title="Listen to {{songName}}" target="_blank">Preview on iTunes</a></p>
                   <p>Genre: <a href="{{moreOfGenre}}" title="More {{genre}} on iTunes" target="_blank">{{genre}}</a></p>
                   <p>Release Date: {{releaseDate}}</p>
                   <p>{{rights}}</p>
