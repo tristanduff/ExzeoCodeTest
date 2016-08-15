@@ -1,29 +1,30 @@
 {
-  "name": "exzeo-code-test",
-  "version": "1.0.0",
-  "description": "Testing",
+  "name": "exzeo-code-test-duff",
+  "version": "1.0.1",
+  "description": "JSON Package for iTunes Top 100 Albums search page",
   "main": "index.js",
+  "dependencies": {
+    "axios": "^0.13.1",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tristanduff/ExzeoCodeTest.git"
   },
   "keywords": [
-    "life",
-    "death",
-    "fire"
+    "itunes",
+    "top100",
+    "albums",
+    "music"
   ],
   "author": "Tristan Duff",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/tristanduff/ExzeoCodeTest/issues"
   },
-  "homepage": "https://github.com/tristanduff/ExzeoCodeTest#readme",
-  "dependencies": {
-    "axios": "^0.13.1",
-    "express": "^4.14.0"
-  }
+  "homepage": "https://github.com/tristanduff/ExzeoCodeTest#readme"
 }

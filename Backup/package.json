@@ -1,0 +1,29 @@
+{
+  "name": "exzeo-code-test",
+  "version": "1.0.0",
+  "description": "Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tristanduff/ExzeoCodeTest.git"
+  },
+  "keywords": [
+    "life",
+    "death",
+    "fire"
+  ],
+  "author": "Tristan Duff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tristanduff/ExzeoCodeTest/issues"
+  },
+  "homepage": "https://github.com/tristanduff/ExzeoCodeTest#readme",
+  "dependencies": {
+    "axios": "^0.13.1",
+    "express": "^4.14.0"
+  }
+}

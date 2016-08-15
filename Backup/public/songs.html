@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  	 <title>iTunes Top 100 Songs - Powered by Exzeo</title>
-  	 <meta charset="utf-8">
-  	 <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>Songs</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-     <link rel="stylesheet" href="styles.css">
-     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <link rel="stylesheet" href="styles.css">																				<!--Lecal CSS Stylesheet-->
+  	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>														<!--Access to JQuery Library-->
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>												<!--Access to JQuery UI Library-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+  <!--<script src="color-thief.js"></script>-->
 
 </head>
 <body class="flexHolder">
@@ -22,13 +23,24 @@
 		<span class="flexHeaderSubtext">Powered by </span><img src="exzeo.jpg" class="flexHeaderLogo">
 		<br>
 		<span><a href="index.html">Check out the top 100 albums on iTunes here!</a></span>
+
 	</div>
+
+<!-- <script id="songTemplate" type="text-x-handlebars-template">
+  <div id="songItem">
+    <span>{{songName}}</span>
+  </div>
+</script> -->
+
 <div>
 <!--Template for the cards in the bottom part of the page-->
 	<script id="cardTemplate" type="text/x-handlebars-template">
 		<div align="center" class="flexItemAlbumEntry container">
 			<span class="Rank">#{{ranking}}</span>
+			<!--When finished, the iTunesLink will be replaced and will set focus of the top carousel-->
+
 				<img src="{{albumArt}}" title="Click for Song Details" class="boop" data-toggle="modal" data-target="#myModal{{ranking}}">
+			<!--<a href="{{iTunesLink}}" target="_blank"></a>-->
 			<br>
 			<span class="nameIt">{{songName}}</span>
 			<span class="Artist box">{{artist}}</span>
@@ -50,6 +62,7 @@
                   <p>Genre: <a href="{{moreOfGenre}}" title="More {{genre}} on iTunes" target="_blank">{{genre}}</a></p>
                   <p>Release Date: {{releaseDate}}</p>
                   <p>{{rights}}</p>
+          				<!--<p>Fun fact: John Mayer gave {{artist}} chlamydia.</p>-->
         			</div>
         			<div class="modal-footer">
                   <span class="item" align="left"><img src="{{albumArt}}" class="AlbumArt"></span>
@@ -60,7 +73,7 @@
   		</div>
 	</script>
 
-	<!--Cards are placed here-->
+	<!--Cards are places here-->
 	<div class="center flexHolder"></div>
 
 	<script src="songscript.js"></script>
