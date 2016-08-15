@@ -6,28 +6,43 @@ var app = express();
 //opens port 3000 if no port is already open
 var port = process.env.PORT || 3000;
 
-//takes request from server and sends response
-app.get("/butt", function (req, res){
-  res.status(200).json("morebutts");
-});
+
 
 //Grabs the Apple JSON feed
 app.get("/albums", function (req, res){
   axios.get("https://itunes.apple.com/us/rss/topalbums/limit=100/json")
   .then(response => {
-    res.status(200).json(response.data)
+    var data = response.data.feed.entry.map((album, index) => {
+    //console.log(response.data.feed.entry)
+      //var id = album['id'].attributes['im:id']
+      return {
+        ranking: index+1,
+        idCode: album['id'].attributes['im:id'],
+        iTunesLink: album['link'].attributes.href,
+        albumArt: album['im:image'][2].label,
+        name: album['im:name'].label,
+        artist:album['im:artist'].label,
+        releaseDate:album['im:releaseDate'].attributes.label,
+        songCount:album['im:itemCount'].label,
+        genre:album['category'].attributes.label,
+        moreOfGenre:album['category'].attributes.scheme,
+        rights:album['rights'].label
+      }
+    })
+
+    res.status(200).json(data)
   })
   .catch(error => {
     console.log(error)
   })
 });
 
-app.get("/albums-1", function (req, res){
+app.get("/albums/id", function (req, res){
   axios.get("https://itunes.apple.com/us/rss/topalbums/limit=100/json")
   .then(response => {
     var data = response.data.feed.entry.map(album => {
       return {
-        name: album["im:name"].label
+        albumID: album["id"].attributes
       }
     })
     res.status(200).json(data)

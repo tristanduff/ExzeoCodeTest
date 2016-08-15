@@ -11,7 +11,8 @@
   	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>														<!--Access to JQuery Library-->
 	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>												<!--Access to JQuery UI Library-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+  <!--<script src="color-thief.js"></script>-->
 
 </head>
 <body class="flexHolder">
@@ -24,42 +25,57 @@
 		<span><a href="songs.html">Check out the top 100 songs on iTunes here!</a></span>
 
 	</div>
-	
+<!--
+<script id="songlister" type="text-x-handlebars-template">
+  <div id="songItem">
+    <span>{{songName}}</span>
+  </div>
+</script>
+-->
+<div>
 <!--Template for the cards in the bottom part of the page-->
 	<script id="cardTemplate" type="text/x-handlebars-template">
 		<div align="center" class="flexItemAlbumEntry container">
 			<span class="Ranking">#{{ranking}}</span>
 			<!--When finished, the iTunesLink will be replaced and will set focus of the top carousel-->
-			
-				<img src="{{albumArt}}" title="Click" class="img" data-toggle="modal" data-target="#myModal">
+
+				<img src="{{albumArt}}" title="Click for Album Details" class="boop" data-toggle="modal" data-target="#myModal{{ranking}}">
 			<!--<a href="{{iTunesLink}}" target="_blank"></a>-->
-			<br
-			<span class="Name box">{{name}}</span>
+			<br>
+			<span class="nameIt">{{name}}</span>
 			<span class="Artist box">{{artist}}</span>
 		</div>
-		<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal fade" id="myModal{{ranking}}" role="dialog">
     		<div class="modal-dialog">
-    
+
       			<!-- Modal content-->
       			<div class="modal-content">
         			<div class="modal-header">
           				<button type="button" class="close" data-dismiss="modal">&times;</button>
-          				<h4 class="modal-title">{{name}} by {{artist}}</h4>
+          				<h4 class="modal-title">Album Details</h4>
         			</div>
         			<div class="modal-body">
-          				<p>Some text in the modal.</p>
+                  <p>{{name}}</p>
+                  <p>{{artist}}</p>
+                  <p>Genre: {{genre}}</p>
+                  <p>Release Date: {{releaseDate}}</p>
+                  <p>Tracks: {{songCount}}</p>
+                  <p><a href="{{iTunesLink}}" target="_blank">View this album on iTunes</a></p>
+                  <p>{{rights}}</p>
+          				<!--<p>Fun fact: John Mayer gave {{artist}} chlamydia.</p>-->
         			</div>
         			<div class="modal-footer">
-          				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <span class="item" align="left"><img src="{{albumArt}}" class="AlbumArt"></span>
+          				<button type="button item" class="btn btn-default" data-dismiss="modal">Close</button>
         			</div>
       			</div>
 	      	</div>
   		</div>
 	</script>
-	
+
 	<!--Cards are places here-->
 	<div class="center flexHolder"></div>
-	
-	<script src="script.js"></script> 			
+
+	<script src="script.js"></script>
 </body>
 </html>
