@@ -36,6 +36,35 @@ app.get("/albums", function (req, res){
   })
 });
 
+//Grabs top 100 songs
+app.get("/songs", function (req, res){
+  axios.get("https://itunes.apple.com/us/rss/topsongs/limit=100/json")
+  .then(response => {
+    var data = response.data.feed.entry.map((song, index) => {
+      return {
+        ranking: index+1,
+        idCode: song['id'].attributes['im:id'],
+        //iTunesSongLink: song['link'][0].attributes.href,
+        iTunesAlbumLink: song['im:collection'].link.attributes.href,
+        songName: song['im:name'].label, //
+        albumName: song['im:collection']['im:name'].label, //
+        previewLink: song['link'][1].attributes.href, //
+        albumArt: song['im:image'][2].label, //
+        artist: song['im:artist'].label, //
+        releaseDate: song['im:releaseDate'].attributes.label, //
+        //songCount: song['im:itemCount'].label,
+        genre: song['category'].attributes.label, //
+        moreOfGenre: song['category'].attributes.scheme, //
+        rights: song['rights'].label //good
+      }
+    })
+    res.status(200).json(data)
+  })
+  .catch(error => {
+    console.log(error)
+  })
+});
+
 app.get("/albums/id", function (req, res){
   axios.get("https://itunes.apple.com/us/rss/topalbums/limit=100/json")
   .then(response => {
